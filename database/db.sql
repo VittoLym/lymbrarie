@@ -1,8 +1,7 @@
 CREATE TABLE user_table (
     userid INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(40),
-    userimg VARCHAR(150),
-    userprhase TEXT
+    language VARCHAR(15),
+    theme VARCHAR(15)
 );
 
 

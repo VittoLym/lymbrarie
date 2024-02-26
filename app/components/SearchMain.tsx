@@ -11,7 +11,7 @@ function Search() {
     handleChangeSelect = (e: any) => setSelectStateValue(e.target.value);
 
   return (
-    <form className="w-full flex flex-col items-center justify-center pb-14 gap-y-4">
+    <form className="w-full flex flex-col items-center justify-center pt-20 pb-14 gap-y-4">
       <div className="w-full flex flex-row gap-x-3 justify-center items-start">
         <input
           value={value}

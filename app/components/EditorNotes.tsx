@@ -12,7 +12,7 @@ function EditorNotes() {
     <ReactQuill
       value={value}
       onChange={val => setValue(val)}
-      className="bg-slate-200 w-[700px] h-auto"
+      className="bg-slate-300 w-[700px] h-auto "
       theme="snow"
     />
   );

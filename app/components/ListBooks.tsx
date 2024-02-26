@@ -50,7 +50,11 @@ function ListBooks({ MY_BOOKS }: { MY_BOOKS: string[] }) {
         image={book.image}
       />
     ));
-    return booksFiltered.length > 0 ? booksFiltered : "No matches...";
+    return booksFiltered.length > 0 ? (
+      booksFiltered
+    ) : (
+      <p className="text-gray-200 text-2xl">No matches...</p>
+    );
   }
 
   function filterByCheck() {
@@ -68,7 +72,11 @@ function ListBooks({ MY_BOOKS }: { MY_BOOKS: string[] }) {
       />
     ));
 
-    return booksFiltered.length > 0 ? booksFiltered : "No matches...";
+    return booksFiltered.length > 0 ? (
+      booksFiltered
+    ) : (
+      <p className="text-gray-200 text-2xl">No matches...</p>
+    );
   }
 
   function filterByValueAndCheck() {
@@ -93,7 +101,11 @@ function ListBooks({ MY_BOOKS }: { MY_BOOKS: string[] }) {
         />
       ));
 
-    return booksFiltered.length > 0 ? booksFiltered : "No matches...";
+    return booksFiltered.length > 0 ? (
+      booksFiltered
+    ) : (
+      <p className="text-gray-200 text-2xl">No matches...</p>
+    );
   }
 
   return (

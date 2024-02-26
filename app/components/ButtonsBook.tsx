@@ -48,7 +48,7 @@ function ButtonsBook({ bookId }: { bookId: string }) {
         height="24"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
+        stroke="#fff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -64,7 +64,7 @@ function ButtonsBook({ bookId }: { bookId: string }) {
         fill="none"
       >
         <path
-          stroke="#000000"
+          stroke="#fff"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"

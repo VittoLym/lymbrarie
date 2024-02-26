@@ -27,11 +27,11 @@ async function BookId({ params }: Params) {
   }
 
   return (
-    <section className=" pt-20 flex flex-col justify-center items-center w-full gap-y-6">
+    <section className="flex flex-col justify-center items-center w-full gap-y-6">
       <BackSVG route="/" />
-      <article className=" w-[700px] h-[308px] flex flex-row justify-start items-start  bg-slate-200 rounded-md p-1">
+      <article className="w-[700px] h-[315px] flex flex-row justify-start items-start bg-slate-800 border-4 border-gray-700 rounded-md p-1">
         <Image
-          className="aspect-[200/300] w-[200px] h-[300px] object-center object-fill rounded-md"
+          className="aspect-[200/300] w-[200px] h-[300px] object-center object-fill rounded-sm"
           src={BOOK.image}
           width={100}
           height={100}
@@ -40,15 +40,15 @@ async function BookId({ params }: Params) {
 
         <div className="flex flex-col justify-end items-start w-full h-full ">
           <div className="flex h-full flex-col px-4 pt-2 gap-y-2">
-            <h4 className="text-3xl font-bold tracking-tight text-balance">
+            <h4 className="text-3xl font-bold tracking-tight text-balance text-white">
               {BOOK.title}
             </h4>
-            <p className="text-md text-gray-800 mb-2">{BOOK.author}</p>
-            <span className="text-sm text-gray-700"> &apos; Ciencia </span>
+            <p className="text-md text-gray-200 mb-2">{BOOK.author}</p>
+            <span className="text-sm text-gray-200 "> &apos; Ciencia </span>
 
             <div className="flex items-center gap-x-2 text-gray-900">
               {getStateSVG()}
-              <span className="text-sm text-gray-700"> {BOOK.state} </span>
+              <span className="text-sm text-gray-200 "> {BOOK.state} </span>
             </div>
             <div className="flex items-center gap-2 pl-[1.8px]">
               <svg
@@ -57,7 +57,7 @@ async function BookId({ params }: Params) {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
+                stroke="#fff"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -65,7 +65,7 @@ async function BookId({ params }: Params) {
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
               </svg>
-              <span className="text-sm text-gray-700"> {BOOK.pages} pages</span>
+              <span className="text-sm text-gray-200 ">{BOOK.pages} pages</span>
             </div>
           </div>
           <ButtonsBook bookId={BOOK.id} />

@@ -1,27 +1,33 @@
 import { NextResponse } from "next/server";
 import { DB } from "@/libs/mysql";
 
-async function GET() {
+interface TypeUser {
+  userid: number;
+  language: string;
+  theme: string;
+}
+
+async function GET(): Promise<NextResponse> {
   try {
-    const results: any = await DB.query("SELECT * FROM user_table");
+    const results: TypeUser[] = await DB.query("SELECT * FROM user_table");
     return NextResponse.json(results[0]);
-  } catch (err: any) {
-    return NextResponse.json({ message: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ message: err }, { status: 500 });
   }
 }
 
-async function POST(request: Request) {
+async function POST(request: Request): Promise<NextResponse> {
   try {
     const { username, userimg, userprhase }: any = await request.json(),
       newUser: object = { username, userimg, userprhase },
       result: any = await DB.query("INSERT INTO user_table SET ?", newUser);
     return NextResponse.json({ id: result.insertId, ...newUser });
-  } catch (err: any) {
-    return NextResponse.json({ message: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ message: err }, { status: 500 });
   }
 }
 
-async function PUT(request: Request) {
+async function PUT(request: Request): Promise<NextResponse> {
   try {
     const userData = await request.json(),
       result: any = await DB.query("UPDATE user_table SET ?", userData);
@@ -34,8 +40,8 @@ async function PUT(request: Request) {
     }
 
     return NextResponse.json({ id: result.insertId, ...userData });
-  } catch (err: any) {
-    return NextResponse.json({ message: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ message: err }, { status: 500 });
   }
 }
 

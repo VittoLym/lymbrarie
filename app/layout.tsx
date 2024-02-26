@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="backdrop-blur-4xl bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 font-mono w-full min-h-screen flex justify-center items-center pt-20">
+      <body className="backdrop-blur-4xl bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 font-mono w-full min-h-screen flex justify-center items-start">
         <Providers>{children}</Providers>
       </body>
     </html>

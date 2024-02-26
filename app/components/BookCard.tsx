@@ -28,7 +28,7 @@ function BookCard({ id, title, author, state, image }: BookProps) {
     <li
       key={id}
       onClick={onClick}
-      className="flex flex-row justify-between w-[300px] items-start gap-x-2 pr-0.5 bg-slate-800 border-4 h-[135px] cursor-pointer duration-150 border-gray-700 rounded-md hover:bg-gray-700 hover:scale-105"
+      className="flex flex-row justify-between w-[300px] items-start gap-x-2 pr-0.5 bg-slate-800 border-4 border-gray-700 h-[135px] cursor-pointer duration-150  rounded-md hover:bg-gray-700 hover:scale-105"
     >
       <Image
         src={
