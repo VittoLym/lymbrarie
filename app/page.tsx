@@ -1,6 +1,5 @@
 import axios from "axios";
 import Main from "./components/Main";
-import HeaderMain from "./components/HeaderMain";
 import SearchMain from "./components/SearchMain";
 import ListBooks from "./components/ListBooks";
 
@@ -14,7 +13,6 @@ async function Home() {
 
   return (
     <Main>
-      <HeaderMain />
       <SearchMain />
       <ListBooks MY_BOOKS={MY_BOOKS} />
     </Main>

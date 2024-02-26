@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { flushSync } from "react-dom";
+//import { flushSync } from "react-dom";
 
 function ButtonsBook({ bookId }: { bookId: string }) {
   const router = useRouter();
@@ -39,7 +39,7 @@ function ButtonsBook({ bookId }: { bookId: string }) {
   }
 
   return (
-    <div className="absolute bottom-0 right-0 flex items-center justify-end gap-x-4">
+    <div className="flex items-center justify-end gap-x-4 w-full">
       <svg
         onClick={deleteBook}
         className="w-5 h-5"

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { BackSVG } from "@/app/svg";
+import { signOut } from "next-auth/react";
 
 interface TypeUser {
   username: string;
@@ -16,9 +17,11 @@ const initialValues = {
   userprhase: "",
 };
 
-function Settings() {
+async function Settings() {
   const router = useRouter(),
     [userData, setUserData] = useState<TypeUser>(initialValues);
+
+  const signOutLymbrarie = () => signOut();
 
   useEffect(() => {
     async function getUserData() {
@@ -48,43 +51,7 @@ function Settings() {
     >
       <BackSVG route="/" />
 
-      <label className="flex flex-col justify-center items-start w-full h-6">
-        <span>Username</span>
-        <input
-          type="text"
-          name="username"
-          value={userData?.username}
-          placeholder="Your username"
-          className="w-full rounded-md bg-slate-100 pl-3 py-1 outline-0 text-gray-900"
-          onChange={handleChange}
-        />
-      </label>
-
-      <label className="flex flex-col justify-center items-start w-full h-6">
-        <span>Profile image</span>
-        <input
-          type="text"
-          value={userData?.userimg}
-          name="userimg"
-          placeholder="Link image"
-          className="w-full rounded-md bg-slate-100 pl-3 py-1 outline-0 text-gray-900"
-          onChange={handleChange}
-        />
-      </label>
-
-      <label className="flex flex-col justify-center items-start w-full h-6">
-        <span>Frase</span>
-        <input
-          type="text"
-          value={userData?.userprhase}
-          name="userprhase"
-          placeholder="Frase (optional)"
-          className="w-full rounded-md bg-slate-100 pl-3 py-1 outline-0 text-gray-900"
-          onChange={handleChange}
-        />
-      </label>
-
-      <div className="flex flex-row justify-between items-center w-full h-6">
+      <div className="flex flex-row justify-between items-center w-full h-6 text-black">
         <p className="text-xl">Language</p>
         <select>
           <option value="en">English</option>
@@ -93,17 +60,21 @@ function Settings() {
         </select>
       </div>
 
-      <div className="flex flex-row justify-between items-center w-full h-6">
+      <div className="flex flex-row justify-between items-center w-full h-6 text-white">
         <p className="text-xl">Copy security</p>
         <button className="bg-red-500 py-2 px-4 rounded-md text-white">
           #
         </button>
       </div>
 
-      <button type="submit" className="bg-green-300 px-4 py-1">
-        save
+      {/* <button
+        type="submit"
+        className="cursor-pointer transition-all bg-green-500 text-white font-semibold w-full py-2 rounded-lg
+        border-green-400 border-[2px] hover:brightness-75 text-xl hover:scale-95"
+      >
+        Save
       </button>
-      {/* <hr color="#636363" className="w-full h-[2px] rounded-lg" /> */}
+       <hr color="#636363" className="w-full h-[2px] rounded-lg" /> */}
 
       <div className="w-full bg-slate-800 border border-slate-500 grid grid-cols-6 gap-2 rounded-xl p-2 text-sm">
         <h1 className="text-center text-gray-100 text-xl font-bold col-span-6">
@@ -141,15 +112,22 @@ function Settings() {
           </svg>
         </button>
       </div>
+      <button
+        onClick={signOutLymbrarie}
+        className="cursor-pointer transition-all bg-red-500 text-white w-full py-2 rounded-lg
+        border-red-400 border-[2px] hover:brightness-75 text-xl hover:scale-95 font-semibold"
+      >
+        Sign Out
+      </button>
 
       <a
         rel="noreferrer"
-        href="https://gioliotta.online"
+        href="https://gixi.me"
         target="_blank"
-        className="text-gray-800 text-md sm:text-lg hover:text-gray-500 cursor-pointer w-full text-center pt-6"
-        title="gioliotta contact"
+        className="text-gray-200 text-md sm:text-lg hover:text-gray-500 cursor-pointer w-full text-center pt-6"
+        title="gixi contact"
       >
-        Created with ❤️ by <u>gioliotta</u>
+        Created with ❤️ by <u>gixi</u>
       </a>
     </form>
   );

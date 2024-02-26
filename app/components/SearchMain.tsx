@@ -2,6 +2,7 @@
 import { useRecoilState } from "recoil";
 import { inputSearch, checkboxValue } from "../context/AppContext";
 import AddBookBtn from "./AddBookBtn";
+import { SettingsSVG } from "../svg";
 
 function Search() {
   const [value, setValue] = useRecoilState(inputSearch),
@@ -10,29 +11,30 @@ function Search() {
     handleChangeSelect = (e: any) => setSelectStateValue(e.target.value);
 
   return (
-    <form className="flex flex-col items-center justify-center w-[96.5%] py-6 gap-y-2">
-      <div className="w-full flex flex-row gap-x-3">
+    <form className="w-full flex flex-col items-center justify-center pb-14 gap-y-4">
+      <div className="w-full flex flex-row gap-x-3 justify-center items-start">
         <input
           value={value}
           onChange={handleChangeInput}
-          className="w-3/4 px-4 h-11 rounded-md outline outline-gray-300 focus:outline-none focus:ring focus:ring-gray-300  "
+          className="w-[420px] text-white text-start px-4 py-3 bg-gray-800 rounded-lg border-2 border-gray-700 placeholder-gray-100 text-xl"
           placeholder="Filter by title or author"
           type="search"
         />
         <AddBookBtn />
       </div>
-      <div className="flex flex-row justify-start items-center w-full">
-        <label htmlFor="select-state">Filter by: </label>
+      <div className="flex flex-row justify-between items-center w-[573px] text-white">
         <select
+          className="text-white bg-transparent"
           onChange={handleChangeSelect}
           id="select-state"
-          defaultValue="All"
+          defaultValue=""
         >
-          <option value="All">All</option>
+          <option value="">All</option>
           <option value="Read">Read</option>
           <option value="Reading">Reading</option>
           <option value="Pending">Pending</option>
         </select>
+        <SettingsSVG />
       </div>
     </form>
   );

@@ -3,7 +3,6 @@ import { Reference, useEffect, useRef, useState } from "react";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { useRouter, useParams } from "next/navigation";
 import InputForm from "@/app/components/InputForm";
-import StateBook from "./StateBook";
 import axios from "axios";
 
 interface BookType {
@@ -19,11 +18,10 @@ function Form() {
     router = useRouter(),
     params = useParams<Params>(),
     isEditing = params.bookId != undefined,
-    [initialLoad, setInitialLoad] = useState(false),
     [book, setBook] = useState<BookType>({
       title: "",
       author: "",
-      state: "",
+      state: "Pending",
       image: "",
       pages: 0,
     });
@@ -39,7 +37,6 @@ function Form() {
           pages: res.data.pages,
         };
         setBook(editBook);
-        setInitialLoad(true);
       });
     }
   }, []);
@@ -54,8 +51,9 @@ function Form() {
     });
   }
 
-  const handleStateChange = (selectedState: any) =>
+  function handleStateChange(selectedState: any) {
     setBook({ ...book, state: selectedState });
+  }
 
   async function newBook(event: any) {
     event.preventDefault();
@@ -86,6 +84,7 @@ function Form() {
       ref={form}
       className="w-full"
     >
+      <title>Lymbrarie - Add book</title>
       <div className="grid gap-4 p-4">
         <InputForm
           required={true}
@@ -125,11 +124,23 @@ function Form() {
             get the link of your image here
           </a>
         </div>
-        <StateBook
-          bookState={book?.state}
-          initialLoad={initialLoad}
-          handleStateChange={handleStateChange}
-        />
+
+        <div className="flex flex-row justify-start items-center gap-x-4">
+          <label htmlFor="add-book-state">State: </label>
+          <select
+            onChange={e => handleStateChange(e.target.value)}
+            className="px-2 py-0.5 rounded-md"
+            id="add-book-state"
+            defaultValue={book.state}
+          >
+            <option disabled selected>
+              Choose a option
+            </option>
+            <option value="Read">Read</option>
+            <option value="Reading">Reading</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </div>
       </div>
 
       <div className="flex justify-end pb-3 pr-3 gap-x-3">

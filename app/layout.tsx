@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
+import Providers from "./components/Providers";
 import "./globals.css";
-import Providers from "./Providers";
+
+export const metadata: Metadata = {
+  title: "Lymbrarie",
+  description: "Donde cada libro encuentra su lugar",
+  keywords: ["libros", "libro", "biblioteca"],
+  icons: "favicon.ico",
+};
 
 export default function RootLayout({
   children,
@@ -8,12 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-        <meta name="description" content="Where every book finds its place" />
-        <title>Lymbrarie</title>
-      </head>
-      <body className="font-mono w-full min-h-screen flex justify-center items-start bg-slate-800 pt-10 pb-20">
+      <body className="backdrop-blur-4xl bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 font-mono w-full min-h-screen flex justify-center items-center pt-20">
         <Providers>{children}</Providers>
       </body>
     </html>

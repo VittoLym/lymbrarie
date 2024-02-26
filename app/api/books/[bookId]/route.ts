@@ -4,9 +4,10 @@ import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 async function GET(request: Request, { params }: Params) {
   try {
-    const result: any = await DB.query("SELECT * FROM book WHERE id = ?", [
-      params.bookId,
-    ]);
+    const result: any = await DB.query(
+      "SELECT * FROM book_table WHERE id = ?",
+      [params.bookId]
+    );
 
     if (result.length == 0) {
       return NextResponse.json(
@@ -27,7 +28,7 @@ function POST(request: Request) {
 
 async function DELETE(request: Request, { params }: Params) {
   try {
-    const result: any = await DB.query("DELETE FROM book WHERE id = ?", [
+    const result: any = await DB.query("DELETE FROM book_table WHERE id = ?", [
       params.bookId,
     ]);
 
@@ -47,7 +48,7 @@ async function DELETE(request: Request, { params }: Params) {
 async function PUT(request: Request, { params }: Params) {
   try {
     const data = await request.json();
-    const result: any = await DB.query("UPDATE book SET ? WHERE id = ?", [
+    const result: any = await DB.query("UPDATE book_table SET ? WHERE id = ?", [
       data,
       params.bookId,
     ]);
@@ -60,7 +61,7 @@ async function PUT(request: Request, { params }: Params) {
     }
 
     const updatedProduct: any = await DB.query(
-      "SELECT * FROM book WHERE id = ?",
+      "SELECT * FROM book_table WHERE id = ?",
       [params.bookId]
     );
 

@@ -1,17 +1,17 @@
-CREATE TABLE user_profile (
+CREATE TABLE user_table (
     userid INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255),
-    userimg VARCHAR(500),
+    username VARCHAR(40),
+    userimg VARCHAR(150),
     userprhase TEXT
 );
 
 
-CREATE TABLE book (
+CREATE TABLE book_table (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL, 
-    author VARCHAR(255),
-    state VARCHAR(50) NOT NULL,  
-    image VARCHAR(500), 
+    title VARCHAR(40) NOT NULL, 
+    author VARCHAR(40),
+    state VARCHAR(10) NOT NULL,  
+    image VARCHAR(150), 
     notes TEXT,  
     pages INT   
 );        

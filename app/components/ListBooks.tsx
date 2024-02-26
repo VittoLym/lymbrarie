@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import BookCard from "./BookCard";
-import { useRecoilState } from "recoil";
 import { inputSearch, checkboxValue } from "../context/AppContext";
+import { useRecoilState } from "recoil";
 
 function ListBooks({ MY_BOOKS }: { MY_BOOKS: string[] }) {
   const [getValue] = useRecoilState(inputSearch),
@@ -97,17 +97,15 @@ function ListBooks({ MY_BOOKS }: { MY_BOOKS: string[] }) {
   }
 
   return (
-    <div className="flex w-[90%] flex-col justify-center items-center">
-      <animated.ul
-        style={{ opacity }}
-        className="grid gap-4 grid-cols-1 md:grid-cols-2 w-full"
-      >
-        {!getValue && !getSelectStateValue && allBooks()}
-        {getValue && !getSelectStateValue && filterByValue()}
-        {!getValue && getSelectStateValue && filterByCheck()}
-        {getValue && getSelectStateValue && filterByValueAndCheck()}
-      </animated.ul>
-    </div>
+    <animated.ul
+      style={{ opacity }}
+      className="grid gap-y-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+    >
+      {!getValue && !getSelectStateValue && allBooks()}
+      {getValue && !getSelectStateValue && filterByValue()}
+      {!getValue && getSelectStateValue && filterByCheck()}
+      {getValue && getSelectStateValue && filterByValueAndCheck()}
+    </animated.ul>
   );
 }
 

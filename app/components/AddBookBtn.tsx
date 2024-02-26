@@ -16,39 +16,14 @@ function AddBookBtn() {
   }
 
   return (
-    <div className="flex flex-row justify-center gap-x-3 items-center cursor-pointer  text-white w-1/4 bg-slate-700 h-11 rounded-md duration-100 hover:bg-slate-500 ">
-      <a
-        href="/book/addBook"
-        // onClick={onClick}
-        className="text-lg"
-      >
-        Add book
-      </a>
-      <svg className="w-8 h-7" viewBox="0 0 24 24" fill="none">
-        <line
-          fill="none"
-          stroke="#ffffff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          x1="12"
-          x2="12"
-          y1="19"
-          y2="5"
-        />
-        <line
-          fill="none"
-          stroke="#ffffff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          x1="5"
-          x2="19"
-          y1="12"
-          y2="12"
-        />
-      </svg>
-    </div>
+    <button
+      onClick={onClick}
+      className="relative inline-flex items-center justify-center px-6 py-3.5 overflow-hidden font-mono  font-semibold bg-gray-800 rounded-lg group text-white tracking-wider"
+    >
+      <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-orange-700 rounded-full group-hover:w-56 group-hover:h-56" />
+      <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700" />
+      <span className="relative text-xl">Add book</span>
+    </button>
   );
 }
 
