@@ -6,21 +6,24 @@ interface TypeUser {
   language: string;
   theme: string;
 }
-async function addUser() {
+/*async function addUser() {
   try {
     const logUser = {
-      language: 'Spanish',
-      theme: 'Light',
+      language: "Spanish",
+      theme: "Light",
     };
-  
+
     const insertQuery = `INSERT INTO user_table (language, theme) VALUES (?, ?)`;
-    const results = await DB.query(insertQuery, [logUser.language, logUser.theme]);
-  
+    const results = await DB.query(insertQuery, [
+      logUser.language,
+      logUser.theme,
+    ]);
+
     return NextResponse.json(results);
   } catch (err: any) {
     return NextResponse.json({ message: err.message }, { status: 500 });
   }
-}
+}*/
 async function GET(): Promise<NextResponse> {
   try {
     const results: TypeUser[] = await DB.query("SELECT * FROM user_table");
@@ -59,4 +62,4 @@ async function PUT(request: Request): Promise<NextResponse> {
   }
 }
 
-export { GET, POST, PUT, addUser };
+export { GET, POST, PUT };
