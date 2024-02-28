@@ -8,7 +8,7 @@ interface TypeUser {
 }
 async function addUser() {
   try {
-    const logUser = {
+    const loUser = {
       language: 'Spanish',
       theme: 'Light',
     };
