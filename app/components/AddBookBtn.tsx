@@ -5,15 +5,15 @@ import { flushSync } from "react-dom";
 function AddBookBtn() {
   const router = useRouter();
 
-  function onClick() {
-    if (!document.startViewTransition) {
-      return router.push("/book/addBook");
-    } else {
-      document.startViewTransition(() =>
-        flushSync(() => router.push("/book/addBook"))
-      );
+    function onClick() {
+      if (!document.startViewTransition) {
+        return router.push("/book/addBook");
+      } else {
+        document.startViewTransition(() =>
+          flushSync(() => router.push("/book/addBook"))
+        );
+      }
     }
-  }
 
   return (
     <button
